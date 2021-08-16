@@ -3,16 +3,30 @@ body{ margin : 0;}
 ul { list-style : none; padding : 0; margin : 0;}
 div, ul, li, table, tr, td, form, input{ box-sizing : border-box;}
 
-li{cursor:pointer;}
+/* li{cursor:pointer;} */
+
+*{font-family: 'Noto Sans KR', sans-serif;}
+h5{font-size: 1rem; color:lightskyblue;}
 
 /* Modalbox -------------------------------------------------------------*/
 #modalbox{ 
     position:fixed;  z-index:9999999999; display : none;
     width:100%; height:100%; 
-    background-color:rgba(0,0,0,0.8);
-    
+    background-color:rgba(0,0,0,0.5);
     }
 
+/* 모달전체 */    
+    #loginLogobox p, #joinLogobox p, #mypageLogobox p, #jjimLogobox p, #golfmemberLogobox p {
+        font-family: 'Noto Sans KR', sans-serif; font-weight: 400; 
+        font-size: 2rem; margin:0; color:whitesmoke;}
+    #loginForm input, #joinTable input, .mypageInput, #mypageButton, .golfmemberInput, #golfmemberButton  {color:whitesmoke; border-radius: 30px;}
+        .loginInput, .joinInput, .mypageInput, .golfmemberInput, .golfmemberInput{background-color: rgba(0, 0, 0, 0.6);}
+            .joinInput{color:whitesmoke;}
+        /* .joinInput option{color:whitesmoke;} */
+        .loginButton,  #joinButton, #mypageButton, #golfmemberButton, #golfmemberButton  {
+            background-color: rgba(1, 56, 132, 0.6); color:whitesmoke; box-shadow: 0 3px 3px rgba(0,0,0,0.3); transition: all ease 0.5s;}
+        .loginButton:hover,  #joinButton:hover, #mypageButton:hover, #golfmemberButton:hover, #golfmemberButton:hover {
+             background-color: rgba(1, 56, 132, 1);}
 
 
 /* Modal_1_login_로그인*/
@@ -40,8 +54,8 @@ li{cursor:pointer;}
             }
 
             #loginLogobox{ width:100%; display:block; margin-bottom:20px;}
-                #loginLogoimg{ height:95px;}
-                #loginLogobox p{ font-size: 3rem; margin:0; color:gray;}
+                #loginLogoimg{ height:110px;}
+                #loginLogobox p{padding:10px 0;}
             
             #loginForm{display:block;}
             .loginInput, .loginButton{ 
@@ -70,11 +84,12 @@ li{cursor:pointer;}
         position:absolute; width:100%; height:90%;
         top:50%;  transform: translate(0, -50%);}
 
-    #joinLogobox{ width:100%; height:180px; display:block; padding-bottom:20px;}
-        #joinLogoimg{ height:95px;}
-        #joinLogobox p{ font-size:3rem; margin:0; color:gray;}
+    #joinLogobox{ width:100%; height:200px; display:block; padding-bottom:20px;}
+        #joinLogoimg{ height:110px;}
+        #joinLogobox p{padding:10px;}
+
     
-    #joinForm{ display:block; height:calc(100% - 180px);  overflow:auto; }
+    #joinForm{ display:block; height:calc(100% - 200px);  overflow:auto; }
     #joinTable{ width:50%; margin-left:auto; margin-right: auto;}
     #joinTable{color:whitesmoke;} 
     .joinInput, .joinButton{ 
@@ -104,19 +119,18 @@ li{cursor:pointer;}
             position:absolute; width:100%; height:90%;
             top:50%;  transform: translate(0, -50%);}
 
-            #mypageLogobox{ width:100%; height:180px; display:block; padding-bottom:20px;}
-                #mypageLogoimg{height:95px;}
-                #mypageLogobox h2{ margin:0; color:gray;}
-            
-            #mypageForm{ width:100%; height:calc(100% - 180px); overflow: auto;}
-                #mypageLogobox p{ font-size:3rem; margin:0; color:gray;}
+            #mypageLogobox{ width:100%; height:200px; display:block; padding-bottom:20px;}
+                #mypageLogoimg{height:110px;}
+                #mypageLogobox p{padding:10px;}
+
+            #mypageForm{ width:100%; height:calc(100% - 200px); overflow: auto;}
             
                 #mypageTable{ width:50%; margin-left:auto; margin-right: auto; overflow: auto; }
                 
             #mypageTable{color:whitesmoke;} 
             .mypageInput, #mypageButton{ 
                         width: 100%; height:45px; margin:10px 0; padding:0 20px;
-                        border:none; border-radius:10px;
+                        border:none; 
                         font-size:16px;}                            
             #mypageButton{cursor:pointer; width:50%; margin-top:40px;}
         
@@ -136,17 +150,17 @@ li{cursor:pointer;}
             cursor:pointer; transition: all ease 1s; z-index:999999999999;}
             #jjimX:hover{ transform:rotate(180deg);}
             #jjimX img{ width:50px; height:50px;}
+            
 
     #jjimbox{
         position:absolute; width:100%; height:90%;
         top:50%;  transform: translate(0, -50%);}
 
-        #jjimLogobox{ width:100%; height:180px; display:block; padding-bottom:20px;}
-            #jjimLogoimg{height:95px;}
-            #jjimLogobox h2{ margin:0; color:gray;}
-            #jjimLogobox p{ font-size:3rem; margin:0; color:gray;}
+        #jjimLogobox{ width:100%; height:200px; display:block; padding-bottom:20px;}
+            #jjimLogoimg{height:110px;}
+            #jjimLogobox p{padding:10px;}
         
-        #jjimForm{ width:100%; height:calc(100% - 180px); overflow: auto; color:whitesmoke;}    
+        #jjimForm{ width:100%; height:calc(100% - 200px); overflow: auto; color:whitesmoke;}    
             .jjimListBox{ 
                 padding:20px 0; border-bottom:1px solid rgba(0, 0, 0, 0.2);
                 width:50%; margin-left:auto; margin-right: auto;
@@ -188,36 +202,23 @@ li{cursor:pointer;}
                 position:absolute; width:100%; height:90%;
                 top:50%;  transform: translate(0, -50%);}
 
-        #golfmemberLogobox{ width:100%; height:180px; display:block; padding-bottom:20px;}
-            #golfmemberLogoimg{height:95px;}
-            #golfmemberLogobox p{ margin:0; color:gray;}
-        
-         #golfmemberForm{ width:100%; height:calc(100% - 180px); overflow: auto;}
-            #golfmemberLogobox p{ font-size:3rem; margin:0; color:gray;}
+        #golfmemberLogobox{ width:100%; height:200px; display:block; padding-bottom:20px;}
+            #golfmemberLogoimg{height:110px;}
+            #golfmemberLogobox p{padding:10px;}    
+
+         #golfmemberForm{ width:100%; height:calc(100% - 200px); overflow: auto;}
         
             #golfmemberTable{ width:50%; margin-left:auto; margin-right: auto; overflow: auto; }
             
         #golfmemberTable{color:whitesmoke;} 
         .golfmemberInput, #golfmemberButton{ 
                     width: 100%; height:45px; margin:10px 0; padding:0 20px;
-                    border:none; border-radius:10px;
+                    border:none;
                     font-size:16px;}
         #golfmemberPrice{text-align: left;}
         #golfmemberInput1, #golfmemberInput2{width:40%;}                            
         #golfmemberButton{cursor:pointer; width:50%; margin-top:40px;} 
 
-
-
-
-
-
-
-
-
-
-
-
-        
 
 
 /* 체크박스 --------------------------------------------------------------------*/
@@ -227,12 +228,13 @@ li{cursor:pointer;}
     z-index:9999; background-color: white; border-radius: 20px;}
 
 /* 체크박스_타이틀 */
-#checkTitleList{ display: inline-block;}
+#checkTitleList{ display: inline-block; cursor:pointer;}
 #checkTitleList li{ display: inline-block; width:80px;}
 #checkTitleList h3{ margin:0;}
 
 #checkTitleBtbox{ display: inline-block; width:80px;}
-#checkTitleBt{ display:inline-block;}
+#checkTitleBt{ display:inline-block;  }
+#checkTitleBt input{  border:none; border-radius: 5px; padding:3px 10px; background-color: #02457a; color:whitesmoke;  }
 
 /* 체크박스_메뉴 */
 #checkMenuList{ display:none;}
@@ -295,20 +297,32 @@ li{cursor:pointer;}
 /* 골프장 상세정보 페이지*/
 #golfImg{width:100%; height:300px; overflow: hidden;}
 
+#golfTitle{margin:10px 0 20px 0;}
+#golfTitle ul{display:flex; flex-wrap:wrap;}
+#golfjangName{width:90%;}
+#golfjangNameJjim{width:10%; display:flex; justify-content: center; align-items: center; cursor:pointer; transition: all ease 0.3s;}
+#golfjangNameJjim:hover{transform:scale(1.2);}
+#reviewStare{width:100%;}
+
 #golfName{padding:10px; margin:0;}
 
 #reviewStar{ padding:5px;}
 
-#golfSimpleInfo{ width:100%; display:inline-flex; justify-content:center; padding:5px; margin-bottom:20px;}
-#golfSimpleInfo ul{ width:calc(100% / 5); display:inline-block; }
-#golfSimpleInfo ul li{padding:2px 0;}
-#golfSimpleInfo ul:nth-child(3) {width:calc((100% / 5) * 3);}
+#golfSimpleInfo{ width:100%; display:flex; flex-wrap: wrap; justify-content:center; padding:5px; }
+
+    #golfSimpleInfo ul:first-child{width:100%;}
+    #golfSimpleInfo ul:first-child li{width:calc(100% / 5); font-weight: 600; padding:5px 0;}
+
+    #golfSimpleInfo ul:nth-child(2) {width:calc((100% / 5) * 1);}
+        #golfSimpleInfo ul:nth-child(2) li{width:100%;  padding:3px 0;}
+    #golfSimpleInfo ul:nth-child(3) {width:calc((100% / 5) * 4);}
+        #golfSimpleInfo ul:nth-child(3) li {width:100%; padding:3px 0;}
 
 #golfInfoMenu{ 
     width:100%; display:inline-flex; justify-content: center;
     }
 #golfInfoMenu li{
-    width:calc(100% / 3); text-align: center;
+    width:calc(100% / 3); text-align: center; cursor:pointer;
     display:inline-block; padding:5px 0; font-weight: 600; transition: all ease 0.3s;
     }
 #golfInfoMenu li:hover{background-color:rgba(1, 56, 132, 0.9);  color:whitesmoke;}
@@ -342,9 +356,17 @@ li{cursor:pointer;}
     .joinList4{width:22%; font-size:0.9rem;}
 
 #joinBoardMenu{display:flex; border-bottom: 3px solid rgba(0,0,0,0.2); padding:15px;}    
-    #joinBoardMenu li{padding-right: 5px;}
+    #joinBoardMenu li{padding-right: 4px;}
     #joinBoardMenu li:last-child{padding-right: 0px;}
 
+    #joinBoardMenu li:nth-child(1) select { 
+        border-radius: 5px;}
+    #joinBoardMenu li:nth-child(2) input { 
+        border:none; border-radius: 5px; padding:2px 6px; background-color: rgba(0, 0, 0, 0.2);}
+    #joinBoardMenu li:nth-child(3) input { 
+        border:none; border-radius: 5px; padding:2px 6px; background-color: #02457a; color:whitesmoke; cursor:pointer;} 
+    #joinBoardMenu li:nth-child(4) button { 
+        border:none; border-radius: 5px; padding:2px 6px; background-color: #02457a; color:whitesmoke; cursor:pointer;} 
     
 
 /* 골프장 조인게시판 글보기 ------------------------------------- */
@@ -371,7 +393,7 @@ li{cursor:pointer;}
     .commentN{width:calc(100% - 80px);}
     .commentN h4{margin:0;}
     .commentBTbox {width:80px;}
-        .commentBT{ width:100%; display:flex; flex-wrap:wrap; justify-content: space-between;}
+        .commentBT{ width:100%; display:flex; flex-wrap:wrap; justify-content: space-between; cursor:pointer;}
         .commentBT li{width:40px;}
     .commentText{width:100%; margin:5px 0;}
 
@@ -407,11 +429,12 @@ li{cursor:pointer;}
 
 /* 상단, 하단 박스 */
 #contain1{ background-color: #02457a;
-        line-height : 50px; z-index:9999999; }
+        height : 50px; display:flex; justify-content:space-between; align-items:center; z-index:9999999; }
 #contain2{ height: calc(100% - 50px); position:relative;}
 
 /* 상단 :  로고, 로그인박스(memberbox) */
- #logobox{ display:inline; margin:0 10px; color:whitesmoke; /*font-size:20px;*/ overflow:hidden;} 
+ #logobox{ display:inline; margin:0 10px; color:whitesmoke; overflow:hidden; height:80%;} 
+    #logobox img{height:100%;}
 #memberbox{display:inline; float:right;}
     #memberbox li{color:whitesmoke; }
     #memberlist{ display:inline; clear:both;}
@@ -421,10 +444,14 @@ li{cursor:pointer;}
 #sidebox{ background-color: white; margin:0; position:absolute; top:0; left:0;
         width:70px; height:100%; display:inline-block; z-index:999999;
         box-shadow:2px 0 10px rgba(0,0,0,0.5);}
-    #sidemenulist{ text-align: center; padding-top:10px;}
-        .sidemenu{ display:block; width:100%; cursor:pointer;  margin:10px 0;}
-        .sidemenuicon{ width:50px;}
+    #sidemenulist{ text-align: center; }
+        .sidemenu{ display:block; width:100%; cursor:pointer;  margin:30px 0;}
+        .sidemenuicon{ width:50px; transform: scale(0.9); opacity: 0.7; transition: all ease 0.5s;}
         .sidemenutext{ margin:0;}
+
+        #list:hover #listicon{transform: scale(1); opacity:1;} 
+        #comm:hover #commicon{transform: scale(1); opacity:1;} 
+        #commcaddy:hover #commcaddyicon{transform: scale(1); opacity:1;} 
  
 /* 하단 : 우측_지도박스 */ 
 #mapbox{  

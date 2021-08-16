@@ -23,6 +23,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Golf_0816</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
 
     <!-- 스타일 시트 -->
     <link href="css/index.css" rel="stylesheet">
@@ -487,6 +492,7 @@
             <div id="golfTitle">
                 <ul>
                     <li id="golfjangName"><h2 id="golfName">골프장 이름!</h2></li>
+                    <li id="golfjangNameJjim" onclick="heart()">♥</li> <!-- 추가 -->
                     <li id="reviewStar">☆☆☆☆☆</li>
                     <li id="golfSimpleInfo">
                         <ul>
@@ -518,8 +524,6 @@
 
             <div id="golfInfoBox">
                 <!-- 골프장 정보, 리뷰, 명소 들어갈 div박스 -->
-                
-                
             </div>
         </div>
     </div> <!--sidePageContain _ 사이드 상세페이지 슬라이드 내부 박스 2--> 
@@ -585,7 +589,7 @@
     <!---------------------------------------------------------- 상단박스 -->
     <div id="contain1">
         <!-------------------------- 로고박스-->
-        <div id="logobox">Any ♨ Golf</div>
+        <div id="logobox"><img src="img/anygolf33_logoM.png"></div>
 
         <!-------------------------- 로그인메뉴박스 -->
         <div id="memberbox">
@@ -611,15 +615,15 @@
             
             <ul id="sidemenulist">
                 <il class="sidemenu" id="list">
-                    <img class="sidemenuicon" src="img/golf_list.png">
+                    <img class="sidemenuicon" id="listicon" src="img/golf_icon.png">
                     <p class="sidemenutext">골프장</p>
                 </il>
                 <il class="sidemenu" id="comm">
-                    <img class="sidemenuicon" src="img/list.png">
+                    <img class="sidemenuicon" id="commicon" src="img/commu_icon.png">
                     <p class="sidemenutext">게시판</p>
                 </il>
                 <il class="sidemenu" id="commcaddy">
-                    <img class="sidemenuicon" src="img/list.png">
+                    <img class="sidemenuicon" id="commcaddyicon" src="img/commu_icon.png">
                     <p class="sidemenutext">캐디</p>
                 </il>
             </ul>
@@ -700,6 +704,9 @@
 				}
 			});	
 		}
+		
+		
+		
 		function getloginInfo() {
 			var id_num = $(event.srcElement).attr("id")
 			console.log(id_num)
@@ -736,15 +743,17 @@
 				dataType : "json",
 				success : function(data){
 					for(var i in data){
-						console.log(data[i].member_nick);
-						//var ri = "<div id="golfChangeBox">";
-						//ri += "<div class="golfinfoInner">";
-						//ri += "<h3>"+data[i].member_nick+"</h3>"; 
-						//ri += "</div>";
-						//ri += "</div>";
-						
-						//var h1 = "<h1>"+data[i].member_nick+"</h1>";
-						//$('#golfInfoBox').append(h1);
+						var ri = "<table>"; 
+						ri+="<tr>";
+						ri+="<td>"+"사용자:"+data[i].member_nick+"</td>";
+						ri+="<td>"+"별점:"+data[i].golf_star+"</td>";
+						ri+="</tr>";
+						ri+="<tr>";
+						ri+="<td>"+"리뷰내용:"+data[i].golf_review+"</td>";
+						ri+="</tr>";
+						ri+="<table>";
+						ri+="<br>"
+						$('#golfInfoBox').append(ri);
 						//$('#golfInfoBox').append(h1);
 					}	
 				},
@@ -753,7 +762,12 @@
 				}
 			});	
 		}
-		
+		function heart(){
+	
+			alert("찜 목록에 추가되셨습니다.");
+			
+			
+		}
 		
 </script>
 
