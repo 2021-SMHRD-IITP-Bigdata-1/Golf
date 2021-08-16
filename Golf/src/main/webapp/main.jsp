@@ -98,7 +98,7 @@
                 </div>
                 <form id="loginForm" action="login.do">
                             <input class="loginInput" type="text" name="loginId" placeholder="아이디">
-                            <input class="loginInput" type="text" name="loginPw" placeholder="비밀번호">
+                            <input class="loginInput" type="password" name="loginPw" placeholder="비밀번호">
                             <input class="loginButton" id="loginButton" type="submit" value="로그인">
                             <input class="loginButton" id="findeButton" type="submit" value="아이디/비밀번호 찾기">
                 </form>
