@@ -63,7 +63,8 @@ public class GetSrcList extends HttpServlet {
 				String getarea = rs.getString(10);
 				float getwedo = rs.getFloat(11);
 				float getgongdo = rs.getFloat(12);
-				golfVO vo = new golfVO(getnumber, getname, getaddress, getsection, getholes, getholes, getcaddy, getcall, getcourse, getcaddy, getwedo, getgongdo, getlick, getarea);
+				String getimg = rs.getString(13);
+				golfVO vo = new golfVO(getnumber,getname, getaddress, getsection, getholes,getcourse ,getcall, getcaddy, getlick, getarea, getwedo, getgongdo, getimg);
 				al.add(vo);
 				System.out.println("al»ðÀÔ¿Ï·á");
 			}

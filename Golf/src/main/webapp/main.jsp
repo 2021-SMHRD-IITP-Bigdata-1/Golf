@@ -52,6 +52,9 @@
     		gvo.setLat(rs.getFloat(11));
     		gvo.setLag(rs.getFloat(12));
     		gvo.setGolf_img(rs.getString(13));
+    		gvo.setGolf_holes(rs.getString(5));
+    		gvo.setGolf_section(rs.getString(4));
+    		gvo.setGolf_caddy(rs.getString(8));
     		list.add(gvo);
     		}
     	} catch (Exception e) {
@@ -152,9 +155,9 @@
                         <td><h5>근무골프장</h5></td>
                         <td>
                             <select class="joinInput" name="joingolf">
+                                <option value="none">선택없음</option>
                                 <option value="푸른솔장성cc">푸른솔골프cc</option>
-                                <option>캐디</option>
-                                <option>운영자</option>
+                                <option value="나주cc">나주cc</option>
                             </select>
                         </td>
                     </tr>
@@ -203,11 +206,11 @@
                     </tr>
                      <tr>
                          <td><h5>패스워드</h5></td>
-                        <td><input class="mypageInput" type="text" name="updataPw" placeholder="비밀번호"></td>
+                        <td><input class="mypageInput" type="password" name="updataPw" placeholder="비밀번호"></td>
                     </tr>
                     <tr>
                         <td><h5>패스워드확인</h5></td>
-                        <td><input class="mypageInput" type="text" name="updataPw" placeholder="비밀번호"></td>
+                        <td><input class="mypageInput" type="password" name="updataPw" placeholder="비밀번호"></td>
                     </tr>
                     <tr>
                         <td><h5>전화번호</h5></td>
@@ -443,9 +446,9 @@
                 <li class="golfListText">
                     <ul>
                         <li><%= list.get(i).getGolf_name() %></li>
-                        <li>몇홀</li>
-                        <li>기본</li>
-                        <li>캐디</li>
+                        <li>홀 : <%= list.get(i).getGolf_holes() %></li>
+                        <li>기본 : <%= list.get(i).getGolf_section() %></li>
+                        <li>캐디 : <%= list.get(i).getGolf_caddy() %></li>
                     </ul>
                 </li>
             </ul>     
@@ -460,9 +463,9 @@
                 <li class="golfListText">
                     <ul>
                         <li><%= arr.get(i).getGolf_name() %></li>
-                        <li>몇홀</li>
-                        <li>기본</li>
-                        <li>캐디</li>
+                        <li>홀 : <%= arr.get(i).getGolf_holes() %></li>
+                        <li>기본 : <%= arr.get(i).getGolf_section() %></li>
+                        <li>캐디 : <%= arr.get(i).getGolf_caddy() %></li>
                     </ul>
                 </li>
             </ul>     
@@ -487,9 +490,9 @@
                     <li id="reviewStar">☆☆☆☆☆</li>
                     <li id="golfSimpleInfo">
                         <ul>
-                            <li>기본</li>
-                            <li>몇홀</li>
-                            <li>캐디</li>
+                            <li id="golfjanggibon">기본</li>
+                            <li id="golfjanghole">홀</li>
+                            <li id="golfjangcaddy">캐디</li>
                         </ul>
                         <ul>
                             <li>주소</li>
@@ -497,8 +500,8 @@
                             <li>가격</li>
                         </ul>
                         <ul>
-                            <li>해당골프장주소블라블라블라</li>
-                            <li>000)000-0000</li>
+                            <li id="golfjangaddr">해당골프장주소블라블라블라</li>
+                            <li id="golfjangcall">000)000-0000</li>
                             <li>0~99999999</li>
                         </ul>
                     </li>
@@ -687,6 +690,11 @@
 				success : function(data){
 					$("#golfName").html(data[id_num].golf_name);
 					$("#golfinfoimg").attr("src", data[id_num].golf_img);
+					$("#golfjanggibon").html(data[id_num].golf_section);
+					$("#golfjanghole").html(data[id_num].golf_holes);
+					$("#golfjangcaddy").html(data[id_num].golf_caddy);
+					$("#golfjangaddr").html(data[id_num].golf_address);
+					$("#golfjangcall").html(data[id_num].golf_call);
 					//$("#golftitlehole").html(data[id_num].golf_hole);
 					//$("#golftitlelocation").html(data[id_num].golf_area);
 					//$("#imgex").attr("src", data[id_num].caddy);					

@@ -6,6 +6,7 @@ public class golfVO {
 	private String golf_address;
 	private String golf_section;
 	private String golf_holes;
+	private String golf_course;
 	private String golf_call;
 	private String golf_caddy;
 	private String golf_link;
@@ -21,7 +22,28 @@ public class golfVO {
 	}
 	
 	
-	
+	public golfVO(int golf_id, String golf_name, String golf_address, String golf_section, String golf_holes,
+			String golf_course, String golf_call, String golf_caddy, String golf_link, String golf_area, float lat,
+			float lag, String golf_img) {
+		super();
+		this.golf_id = golf_id;
+		this.golf_name = golf_name;
+		this.golf_address = golf_address;
+		this.golf_section = golf_section;
+		this.golf_holes = golf_holes;
+		this.golf_course = golf_course;
+		this.golf_call = golf_call;
+		this.golf_caddy = golf_caddy;
+		this.golf_link = golf_link;
+		this.golf_area = golf_area;
+		this.lat = lat;
+		this.lag = lag;
+		this.golf_img = golf_img;
+	}
+
+
+
+
 	public golfVO(int golf_id, String golf_name, String golf_address, String golf_section, String golf_holes,
 			String golf_call, String golf_caddy, String golf_link, String golf_area, float lat, float lag,
 			String golf_img) {
@@ -172,6 +194,20 @@ public class golfVO {
 
 	public void setDetail_eaplan(String detail_eaplan) {
 		this.detail_eaplan = detail_eaplan;
+	}
+
+
+
+
+	public String getGolf_course() {
+		return golf_course;
+	}
+
+
+
+
+	public void setGolf_course(String golf_course) {
+		this.golf_course = golf_course;
 	}
 	
 	
