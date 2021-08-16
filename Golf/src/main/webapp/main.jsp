@@ -263,30 +263,18 @@
 
             <div id="jjimForm">
                     <ul class="jjimListBox">
-                        <li class="jjimimg"><img src="img/mainBack.jpg"></li>
+                        <li class="jjimimg"><img src="img/1.jpg"></li>
                         <li class="jjimGolfjang">
                             <ul>
-                                <li>골프장이름!!!!</li>
-                                <li>몇홀</li>
+                                <li>골프장명</li>
+                                <li>홀수</li>
                                 <li>기본</li>
                                 <li>캐디</li>
                             </ul>
                         </li>
                         <li class="jjimDeleteBT"><p>찜삭제</p></td>
                     </ul> 
-
-                    <ul class="jjimListBox">
-                        <li class="jjimimg"><img src="img/mainBack.jpg"></li>
-                        <li class="jjimGolfjang">
-                            <ul>
-                                <li>골프장이름!!!!</li>
-                                <li>몇홀</li>
-                                <li>기본</li>
-                                <li>캐디</li>
-                            </ul>
-                        </li>
-                        <li class="jjimDeleteBT"><p>찜삭제</p></td>
-                    </ul> 
+    
             </div> 
 
         </div>
@@ -454,6 +442,12 @@
                         <li>홀 : <%= list.get(i).getGolf_holes() %></li>
                         <li>기본 : <%= list.get(i).getGolf_section() %></li>
                         <li>캐디 : <%= list.get(i).getGolf_caddy() %></li>
+                        <li><button onclick="mapplus()">이동</button></li>
+                        <%if(loginvo == null) {%>
+                        <li id="golfjangNameJjim" onclick="needlogin()">♥</li> <!-- 추가 -->
+                        <%}else{ %>
+                        <li id="golfjangNameJjim" onclick="heart()">♥</li> <!-- 추가 -->
+                        <%} %>
                     </ul>
                 </li>
             </ul>     
@@ -471,6 +465,12 @@
                         <li>홀 : <%= arr.get(i).getGolf_holes() %></li>
                         <li>기본 : <%= arr.get(i).getGolf_section() %></li>
                         <li>캐디 : <%= arr.get(i).getGolf_caddy() %></li>
+                        <li><button onclick="mapplus()">이동</button></li>
+                       	<%if(loginvo == null) {%>
+                        <li id="golfjangNameJjim" onclick="needlogin()">♥</li> <!-- 추가 -->
+                        <%}else{ %>
+                        <li id="golfjangNameJjim" onclick="heart()">♥</li> <!-- 추가 -->
+                        <%} %>
                     </ul>
                 </li>
             </ul>     
@@ -507,7 +507,7 @@
                         </ul>
                         <ul>
                             <li id="golfjangaddr">해당골프장주소블라블라블라</li>
-                            <li id="golfjangcall">000)000-0000</li>
+                            <li id="golfjangcall" >000)000-0000</li>
                             <li>0~99999999</li>
                         </ul>
                     </li>
@@ -762,12 +762,59 @@
 				}
 			});	
 		}
+		
 		function heart(){
-	
 			alert("찜 목록에 추가되셨습니다.");
-			
-			
 		}
+		function needlogin(){		
+			alert("찜 기능은 로그인 후 사용해주세요.");
+		}
+		
+		function mapplus(){
+			var id_num = $(event.srcElement).attr("id")
+			console.log(id_num)
+			var mapContainer = document.getElementById('mapbox'), // 지도를 표시할 div 
+		    mapOption = { 
+				<%if(arr==null) {%>
+		        center: new kakao.maps.LatLng(<%= list.get(0).getLat()%>, <%= list.get(0).getLag()%>), // 지도의 중심좌표
+		        level: 4 // 지도의 확대 레벨
+		        <% }else{%>
+		        center: new kakao.maps.LatLng(<%= arr.get(0).getLat()%>, <%=arr.get(0).getLag()%>), // 지도의 중심좌표
+		        level: 4 // 지도의 확대 레벨
+		        <% }%>
+		    };
+
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		 
+		// 버튼을 클릭하면 아래 배열의 좌표들이 모두 보이게 지도 범위를 재설정합니다 
+		var points = [
+			<%if(arr==null) {%>
+		    new kakao.maps.LatLng(<%= list.get(0).getLat()%>, <%= list.get(0).getLag()%>)
+		    <% }else{%>
+		    new kakao.maps.LatLng(<%= arr.get(0).getLat()%>, <%=arr.get(0).getLag()%>)
+		    <% }%>
+		];
+
+		// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+		var bounds = new kakao.maps.LatLngBounds();    
+
+		var i, marker;
+		for (i = 0; i < points.length; i++) {
+		    // 배열의 좌표들이 잘 보이게 마커를 지도에 추가합니다
+		    marker =     new kakao.maps.Marker({ position : points[i] });
+		    marker.setMap(map);
+		    
+		    // LatLngBounds 객체에 좌표를 추가합니다
+		    bounds.extend(points[i]);
+		}
+
+		function setBounds() {
+		    // LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
+		    // 이때 지도의 중심좌표와 레벨이 변경될 수 있습니다
+		    map.setBounds(bounds);
+		}
+		}
+		
 		
 </script>
 
