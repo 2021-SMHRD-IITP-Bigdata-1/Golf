@@ -51,6 +51,7 @@
     		gvo.setGolf_name(rs.getString(2));
     		gvo.setLat(rs.getFloat(11));
     		gvo.setLag(rs.getFloat(12));
+    		gvo.setGolf_img(rs.getString(13));
     		list.add(gvo);
     		}
     	} catch (Exception e) {
@@ -438,7 +439,7 @@
     	<% String str = list.get(i).getGolf_name(); %>
         <div class="golfList" id="<%= i %>" onclick="getInfo()">
             <ul class="golfListGolfjang" >
-                <li class="golfListimg" ><img src="img/mainBack.jpg" id="<%= i %>"></li>
+                <li class="golfListimg" ><img src="<%=list.get(i).getGolf_img() %>" id="<%= i %>"></li>
                 <li class="golfListText">
                     <ul>
                         <li><%= list.get(i).getGolf_name() %></li>
@@ -455,7 +456,7 @@
     	<% String str = arr.get(i).getGolf_name(); %>
     	<div class="golfList" id="<%= i %>" onclick="getInfo()">
             <ul class="golfListGolfjang">
-                <li class="golfListimg" ><img src="img/mainBack.jpg" id="<%= i %>"></li>
+                <li class="golfListimg" ><img src="<%=arr.get(i).getGolf_img() %>" id="<%= i %>"></li>
                 <li class="golfListText">
                     <ul>
                         <li><%= arr.get(i).getGolf_name() %></li>
@@ -478,7 +479,7 @@
         </div>
         <div id="golfinfoPage">
             <div id="golfImg">
-                <img src="img/mainBack.jpg">
+                <img id="golfinfoimg" src="img/mainBack.jpg">
             </div>
             <div id="golfTitle">
                 <ul>
@@ -685,6 +686,7 @@
 				dataType : "json",
 				success : function(data){
 					$("#golfName").html(data[id_num].golf_name);
+					$("#golfinfoimg").attr("src", data[id_num].golf_img);
 					//$("#golftitlehole").html(data[id_num].golf_hole);
 					//$("#golftitlelocation").html(data[id_num].golf_area);
 					//$("#imgex").attr("src", data[id_num].caddy);					

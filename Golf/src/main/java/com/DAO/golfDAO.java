@@ -155,7 +155,8 @@ public class golfDAO {
 				String getarea = rs.getString(10);
 				float getwedo = rs.getFloat(11);
 				float getgongdo = rs.getFloat(12);
-				vo = new golfVO(getnumber, getname, getaddress, getsection, getholes, getholes, caddy, getcall, getcourse, getcaddy, getwedo, getgongdo, getlick, getarea);
+				String getimg = rs.getString(13);
+				vo = new golfVO(getnumber, getname, getaddress, getsection, getholes, getcourse, getcaddy, getlick, getarea, getwedo, getgongdo, getimg);
 				arr.add(vo);
 				System.out.println("arr 생성 완료");
 			}
