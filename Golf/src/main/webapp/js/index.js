@@ -89,13 +89,7 @@
             $('#information').css('color','whitesmoke');
         });
 
-        $('#review').on("click",function(){
-            $('#golfInfoBox').load("review.html");
-            $('#information, #review, #serch').css('background-color','rgba(1, 56, 132, 0)');
-            $('#information, #review, #serch').css('color','black');
-            $('#review').css('background-color','rgba(1, 56, 132, 0.9)');
-            $('#review').css('color','whitesmoke');
-        });
+        
 
         $('#serch').on("click",function(){
             $('#golfInfoBox').load("serch.html");

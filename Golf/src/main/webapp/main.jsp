@@ -511,13 +511,17 @@
             <div>
                 <ul id="golfInfoMenu">
                     <li id="information">골프장 정보</li>
-                    <li id="review">리뷰</li>
+                    <li id="review" onclick="getReview()">리뷰</li>
                     <li id="serch">주변명소</li>
                 </ul>
             </div>
 
             <div id="golfInfoBox">
                 <!-- 골프장 정보, 리뷰, 명소 들어갈 div박스 -->
+                <div id=""></div>
+                <div id=""></div>
+                <div id=""></div>
+                
             </div>
         </div>
     </div> <!--sidePageContain _ 사이드 상세페이지 슬라이드 내부 박스 2--> 
@@ -671,13 +675,7 @@
 
 
 </div> <!-- fullbox : 전체화면 -->
-<script>
-		function get(){
-		
-        	console.log($(event.srcElement).attr("id"));
-        	
-		}
-</script>
+
 <script>
 		function getInfo() {
 			var id_num = $(event.srcElement).attr("id")
@@ -731,6 +729,32 @@
 			$("#logouta").click();
 			
 		}
+		
+		function getReview() {
+			$.ajax({
+				//요청할 서버 페이지
+				url : "GetReivew",
+				//응답 데이터 타입
+				dataType : "json",
+				success : function(data){
+					for(var i in data){
+						//console.log(data[i].member_nick);
+						//var ri = "<div id="golfChangeBox">";
+						//ri += "<div class="golfinfoInner">";
+						//ri += "<h3>"+data[i].member_nick+"</h3>"; 
+						//ri += "</div>";
+						//ri += "</div>";
+						//$('#golfInfoBox').append(ri);
+						var h1 = "<h1>"+data[i].member_nick+"</h1>";
+						$('#golfInfoBox').append(h1);
+					}	
+				},
+				error : function() {
+					alert("실패!")
+				}
+			});	
+		}
+		
 		
 </script>
 
