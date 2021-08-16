@@ -518,9 +518,7 @@
 
             <div id="golfInfoBox">
                 <!-- 골프장 정보, 리뷰, 명소 들어갈 div박스 -->
-                <div id=""></div>
-                <div id=""></div>
-                <div id=""></div>
+                
                 
             </div>
         </div>
@@ -738,15 +736,16 @@
 				dataType : "json",
 				success : function(data){
 					for(var i in data){
-						//console.log(data[i].member_nick);
+						console.log(data[i].member_nick);
 						//var ri = "<div id="golfChangeBox">";
 						//ri += "<div class="golfinfoInner">";
 						//ri += "<h3>"+data[i].member_nick+"</h3>"; 
 						//ri += "</div>";
 						//ri += "</div>";
-						//$('#golfInfoBox').append(ri);
-						var h1 = "<h1>"+data[i].member_nick+"</h1>";
-						$('#golfInfoBox').append(h1);
+						
+						//var h1 = "<h1>"+data[i].member_nick+"</h1>";
+						//$('#golfInfoBox').append(h1);
+						//$('#golfInfoBox').append(h1);
 					}	
 				},
 				error : function() {
